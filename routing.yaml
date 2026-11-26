@@ -1,72 +1,103 @@
 # 3X-UI Clash / Mihomo 远程路由模板（v3.7.0+）
 # 把本文件的公开 Raw HTTPS 地址填入面板订阅设置中的「全局路由规则」。
-# 3X-UI 提供节点和 PROXY 组，各场景默认跟随 PROXY，也可单独选节点或 DIRECT。
+# 各场景默认跟随 PROXY。PROXY 首选自动测速，也可在任一场景手动固定节点或选择 DIRECT。
+# 自动测速每 5 分钟比较所有订阅节点的响应延迟。组图标随订阅内嵌。
 # 客户端按 rules 顺序取首条匹配。所有域名和 IP 名单均取自 MetaCubeX，每日更新。
 
 proxy-groups:
+  - name: 自动测速
+    type: url-test
+    icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDMyIDMyIj48cmVjdCB4PSIxIiB5PSIxIiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHJ4PSI4IiBmaWxsPSIjMTA2RDYzIi8+PHBhdGggZD0iTTYgMjJhMTEgMTEgMCAxIDEgMjAgME04IDE3bDIgMW0xLTkgMSAybTgtMi0xIDJtNSA2LTIgMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjQTFGNUQ4IiBzdHJva2Utd2lkdGg9IjIuMSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0ibTE0IDE4IDgtNy00IDEweiIgZmlsbD0id2hpdGUiLz48Y2lyY2xlIGN4PSIxNS41IiBjeT0iMjAiIHI9IjIuNiIgZmlsbD0id2hpdGUiLz48L3N2Zz4="
+    include-all-proxies: true
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    timeout: 5000
+    tolerance: 0
+    lazy: false
+  - name: PROXY
+    type: select
+    icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDMyIDMyIj48cmVjdCB4PSIxIiB5PSIxIiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHJ4PSI4IiBmaWxsPSIjMzE1N0EwIi8+PHBhdGggZD0iTTggMTBoOHE2IDAgNiA2djdtLTQtNCA0IDQgNC00TTggMjJoM3E0IDAgNi01IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PGNpcmNsZSBjeD0iOCIgY3k9IjEwIiByPSIzIiBmaWxsPSIjOEVFN0ZGIi8+PGNpcmNsZSBjeD0iOCIgY3k9IjIyIiByPSIyLjciIGZpbGw9IiM4RUU3RkYiLz48L3N2Zz4="
+    proxies: [自动测速, DIRECT]
+    include-all-proxies: true
   - name: 海外应用
     type: select
-    proxies: [PROXY, DIRECT]
+    icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDMyIDMyIj48cmVjdCB4PSIxIiB5PSIxIiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHJ4PSI4IiBmaWxsPSIjMTk3NEFEIi8+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIxLjgiPjxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjEwIi8+PGVsbGlwc2UgY3g9IjE2IiBjeT0iMTYiIHJ4PSI0LjciIHJ5PSIxMCIvPjxwYXRoIGQ9Ik02IDE2aDIwbS0xOC01aDE2TTggMjFoMTYiLz48L2c+PC9zdmc+"
+    proxies: [PROXY, 自动测速, DIRECT]
     include-all-proxies: true
   - name: AI 服务
     type: select
-    proxies: [PROXY, DIRECT]
+    icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDMyIDMyIj48cmVjdCB4PSIxIiB5PSIxIiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHJ4PSI4IiBmaWxsPSIjNjY1M0I4Ii8+PHBhdGggZD0iTTE1IDRjMS4xIDYuNCAzLjMgOS40IDkgMTEtNS43IDEuNi03LjkgNC42LTkgMTEtMS4xLTYuNC0zLjMtOS40LTktMTEgNS43LTEuNiA3LjktNC42IDktMTF6IiBmaWxsPSJ3aGl0ZSIvPjxwYXRoIGQ9Im0yNCAxOCAxLjUgMy41TDI5IDIzbC0zLjUgMS41TDI0IDI4bC0xLjUtMy41TDE5IDIzbDMuNS0xLjV6IiBmaWxsPSIjQzdCRkZGIi8+PC9zdmc+"
+    proxies: [PROXY, 自动测速, DIRECT]
     include-all-proxies: true
   - name: 流媒体
     type: select
-    proxies: [PROXY, DIRECT]
+    icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDMyIDMyIj48cmVjdCB4PSIxIiB5PSIxIiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHJ4PSI4IiBmaWxsPSIjQ0EzNjU4Ii8+PHJlY3QgeD0iNSIgeT0iOCIgd2lkdGg9IjIyIiBoZWlnaHQ9IjE2IiByeD0iNSIgZmlsbD0iI0ZGRTNFQSIvPjxwYXRoIGQ9Ik0xNCAxMS41djlsNy00LjV6IiBmaWxsPSIjQjYyMDRCIi8+PC9zdmc+"
+    proxies: [PROXY, 自动测速, DIRECT]
     include-all-proxies: true
   - name: TikTok
     type: select
-    proxies: [PROXY, DIRECT]
+    icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDMyIDMyIj48cmVjdCB4PSIxIiB5PSIxIiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHJ4PSI4IiBmaWxsPSIjMTgyMDJCIi8+PHBhdGggaWQ9Im4iIGQ9Ik0xNyA3aDMuNmE1LjIgNS4yIDAgMCAwIDUgNXYzLjVhOS4yIDkuMiAwIDAgMS01LTEuN3Y2YTYuNiA2LjYgMCAxIDEtNi4xLTYuNXYzLjVhMy4xIDMuMSAwIDEgMCAyLjUgM3oiIGZpbGw9IiMyNUY0RUUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xIC44KSIvPjxwYXRoIGQ9Ik0xNyA3aDMuNmE1LjIgNS4yIDAgMCAwIDUgNXYzLjVhOS4yIDkuMiAwIDAgMS01LTEuN3Y2YTYuNiA2LjYgMCAxIDEtNi4xLTYuNXYzLjVhMy4xIDMuMSAwIDEgMCAyLjUgM3oiIGZpbGw9IiNGRjUzNzgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgLjYpIi8+PHBhdGggZD0iTTE3IDdoMy42YTUuMiA1LjIgMCAwIDAgNSA1djMuNWE5LjIgOS4yIDAgMCAxLTUtMS43djZhNi42IDYuNiAwIDEgMS02LjEtNi41djMuNWEzLjEgMy4xIDAgMSAwIDIuNSAzeiIgZmlsbD0id2hpdGUiLz48L3N2Zz4="
+    proxies: [PROXY, 自动测速, DIRECT]
     include-all-proxies: true
   - name: Apple 与 iCloud
     type: select
-    proxies: [PROXY, DIRECT]
+    icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDMyIDMyIj48cmVjdCB4PSIxIiB5PSIxIiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHJ4PSI4IiBmaWxsPSIjMzY4MkJGIi8+PHBhdGggZD0iTTkgMjNhNSA1IDAgMCAxLS40LTEwIDcuNCA3LjQgMCAwIDEgMTQtMS4yQTUuOCA1LjggMCAwIDEgMjMgMjN6IiBmaWxsPSJ3aGl0ZSIvPjxwYXRoIGQ9Ik0xMCAyMmgxMiIgc3Ryb2tlPSIjRDRGNEZGIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPjwvc3ZnPg=="
+    proxies: [PROXY, 自动测速, DIRECT]
     include-all-proxies: true
   - name: 银行服务
     type: select
-    proxies: [PROXY, DIRECT]
+    icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDMyIDMyIj48cmVjdCB4PSIxIiB5PSIxIiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHJ4PSI4IiBmaWxsPSIjMTY3MzY4Ii8+PHBhdGggZD0iTTQuNSAxMyAxNiA2bDExLjUgN3pNNiAyNGgyMHYySDZ6IiBmaWxsPSJ3aGl0ZSIvPjxwYXRoIGQ9Ik05IDE1djZtNy02djZtNy02djYiIHN0cm9rZT0iI0MzRjVENyIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4="
+    proxies: [PROXY, 自动测速, DIRECT]
     include-all-proxies: true
   - name: 证券券商
     type: select
-    proxies: [PROXY, DIRECT]
+    icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDMyIDMyIj48cmVjdCB4PSIxIiB5PSIxIiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHJ4PSI4IiBmaWxsPSIjMkE2ODU2Ii8+PHBhdGggZD0iTTcgN3YxOGgxOSIgc3Ryb2tlPSIjQTJEOEJEIiBmaWxsPSJub25lIiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0ibTEwIDIwIDUtNiA0IDMgNi04bS01IC41TDI1IDlsLjUgNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg=="
+    proxies: [PROXY, 自动测速, DIRECT]
     include-all-proxies: true
   - name: 跨境支付
     type: select
-    proxies: [PROXY, DIRECT]
+    icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDMyIDMyIj48cmVjdCB4PSIxIiB5PSIxIiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHJ4PSI4IiBmaWxsPSIjMzc2NUJCIi8+PHJlY3QgeD0iNC41IiB5PSI4IiB3aWR0aD0iMjMiIGhlaWdodD0iMTYiIHJ4PSIzIiBmaWxsPSJ3aGl0ZSIvPjxwYXRoIGQ9Ik01IDEyaDIydjNINXoiIGZpbGw9IiM3OUI4RjQiLz48cmVjdCB4PSI4IiB5PSIxOCIgd2lkdGg9IjciIGhlaWdodD0iMiIgcng9IjEiIGZpbGw9IiMzNzY1QkIiLz48L3N2Zz4="
+    proxies: [PROXY, 自动测速, DIRECT]
     include-all-proxies: true
   - name: 加密资产
     type: select
-    proxies: [PROXY, DIRECT]
+    icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDMyIDMyIj48cmVjdCB4PSIxIiB5PSIxIiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHJ4PSI4IiBmaWxsPSIjQjY2NTBDIi8+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTAiIGZpbGw9IiNGRkNCNjIiLz48cGF0aCBkPSJNMTIgMTBoNmEzIDMgMCAwIDEgMCA2aC01bTAtNnYxMmg1YTMgMyAwIDAgMCAwLTZtLTQtOHYybTMtMnYybS0zIDEydjJtMy0ydjIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzgzNDIwQiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4="
+    proxies: [PROXY, 自动测速, DIRECT]
     include-all-proxies: true
   - name: 其他金融
     type: select
-    proxies: [PROXY, DIRECT]
+    icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDMyIDMyIj48cmVjdCB4PSIxIiB5PSIxIiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHJ4PSI4IiBmaWxsPSIjNjc1MzlBIi8+PHBhdGggZD0iTTE2IDV2MTFoMTFBMTEgMTEgMCAxIDEgMTQgNXoiIGZpbGw9IiNFQ0U0RkYiLz48cGF0aCBkPSJNMTkgNC41YTEwIDEwIDAgMCAxIDkgOUgxOXoiIGZpbGw9IiNCNkExRUQiLz48L3N2Zz4="
+    proxies: [PROXY, 自动测速, DIRECT]
     include-all-proxies: true
   - name: Telegram
     type: select
-    proxies: [PROXY, DIRECT]
+    icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDMyIDMyIj48cmVjdCB4PSIxIiB5PSIxIiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHJ4PSI4IiBmaWxsPSIjMjI4QkMwIi8+PHBhdGggZD0ibTUgMTUgMjEtOC0zLjUgMTgtNi40LTQuOC0zLjYgMyAuNy01LjcgOS40LTgtMTEuNyA2Ljl6IiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg=="
+    proxies: [PROXY, 自动测速, DIRECT]
     include-all-proxies: true
   - name: 开发平台
     type: select
-    proxies: [PROXY, DIRECT]
+    icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDMyIDMyIj48cmVjdCB4PSIxIiB5PSIxIiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHJ4PSI4IiBmaWxsPSIjMzk0QjY5Ii8+PHBhdGggZD0ibTEwLjUgMTEtNSA1IDUgNW0xMS0xMCA1IDUtNSA1IiBzdHJva2U9IndoaXRlIiBmaWxsPSJub25lIiBzdHJva2Utd2lkdGg9IjIuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0ibTE4LjUgOC01IDE2IiBzdHJva2U9IiM4NkQ3RkYiIHN0cm9rZS13aWR0aD0iMi40IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4="
+    proxies: [PROXY, 自动测速, DIRECT]
     include-all-proxies: true
   - name: Google 服务
     type: select
-    proxies: [PROXY, DIRECT]
+    icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDMyIDMyIj48cmVjdCB4PSIxIiB5PSIxIiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHJ4PSI4IiBmaWxsPSIjRjBGM0Y5Ii8+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSI0LjMiPjxwYXRoIGQ9Ik0yMi41IDkuMmE5IDkgMCAwIDAtMTMuOSAzLjEiIHN0cm9rZT0iI0VBNDMzNSIvPjxwYXRoIGQ9Ik04LjggMTJhOSA5IDAgMCAwIC4xIDguMiIgc3Ryb2tlPSIjRkJCQzA0Ii8+PHBhdGggZD0iTTguOCAyMGE5IDkgMCAwIDAgMTQuMiAyLjEiIHN0cm9rZT0iIzM0QTg1MyIvPjxwYXRoIGQ9Ik0yMi44IDIyLjNhOCA4IDAgMCAwIDIuMS02LjFIMTYiIHN0cm9rZT0iIzQyODVGNCIvPjwvZz48L3N2Zz4="
+    proxies: [PROXY, 自动测速, DIRECT]
     include-all-proxies: true
   - name: 微软服务
     type: select
-    proxies: [PROXY, DIRECT]
+    icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDMyIDMyIj48cmVjdCB4PSIxIiB5PSIxIiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHJ4PSI4IiBmaWxsPSIjRUVGMUY2Ii8+PHBhdGggZmlsbD0iI0YyNTAyMiIgZD0iTTYgNmg5djlINnoiLz48cGF0aCBmaWxsPSIjN0ZCQTAwIiBkPSJNMTcgNmg5djloLTl6Ii8+PHBhdGggZmlsbD0iIzAwQTRFRiIgZD0iTTYgMTdoOXY5SDZ6Ii8+PHBhdGggZmlsbD0iI0ZGQjkwMCIgZD0iTTE3IDE3aDl2OWgtOXoiLz48L3N2Zz4="
+    proxies: [PROXY, 自动测速, DIRECT]
     include-all-proxies: true
   - name: 游戏平台
     type: select
-    proxies: [PROXY, DIRECT]
+    icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDMyIDMyIj48cmVjdCB4PSIxIiB5PSIxIiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHJ4PSI4IiBmaWxsPSIjNzY1NDlEIi8+PHBhdGggZD0iTTEwIDEwaDEycTQgMCA1IDExYy41IDQtMyA0LjUtNi0xaC0xMGMtMyA1LjUtNi41IDUtNiAxcTEtMTEgNS0xMXoiIGZpbGw9IndoaXRlIi8+PHBhdGggZD0iTTExIDEyLjd2NW0tMi41LTIuNWg1IiBzdHJva2U9IiM3NjU0OUQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGNpcmNsZSBjeD0iMjAiIGN5PSIxNiIgcj0iMS40IiBmaWxsPSIjNTU4REQ2Ii8+PGNpcmNsZSBjeD0iMjMiIGN5PSIxMy44IiByPSIxLjQiIGZpbGw9IiNGNjc4OEIiLz48L3N2Zz4="
+    proxies: [PROXY, 自动测速, DIRECT]
     include-all-proxies: true
   - name: 未分类流量
     type: select
-    proxies: [PROXY, DIRECT]
+    icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDMyIDMyIj48cmVjdCB4PSIxIiB5PSIxIiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHJ4PSI4IiBmaWxsPSIjNTM2Mjc0Ii8+PHBhdGggZD0iTTUuNSA4aDIxbC04LjIgMTB2NmwtNC43IDJ2LTh6IiBmaWxsPSIjRTJFQ0Y4Ii8+PHBhdGggZD0iTTkgMTFoMTQiIHN0cm9rZT0iIzlEQjdEMiIgc3Ryb2tlLXdpZHRoPSIxLjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvc3ZnPg=="
+    proxies: [PROXY, 自动测速, DIRECT]
     include-all-proxies: true
 
 rule-providers:
