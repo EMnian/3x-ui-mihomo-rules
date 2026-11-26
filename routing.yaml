@@ -1,0 +1,519 @@
+# 3X-UI Clash / Mihomo 远程路由模板（v3.7.0+）
+# 把本文件的公开 Raw HTTPS 地址填入面板订阅设置中的「全局路由规则」。
+# 3X-UI 提供节点和 PROXY 组，各场景默认跟随 PROXY，也可单独选节点或 DIRECT。
+# 客户端按 rules 顺序取首条匹配。所有域名和 IP 名单均取自 MetaCubeX，每日更新。
+
+proxy-groups:
+  - name: 海外应用
+    type: select
+    proxies: [PROXY, DIRECT]
+    include-all-proxies: true
+  - name: AI 服务
+    type: select
+    proxies: [PROXY, DIRECT]
+    include-all-proxies: true
+  - name: 流媒体
+    type: select
+    proxies: [PROXY, DIRECT]
+    include-all-proxies: true
+  - name: TikTok
+    type: select
+    proxies: [PROXY, DIRECT]
+    include-all-proxies: true
+  - name: Apple 与 iCloud
+    type: select
+    proxies: [PROXY, DIRECT]
+    include-all-proxies: true
+  - name: 银行服务
+    type: select
+    proxies: [PROXY, DIRECT]
+    include-all-proxies: true
+  - name: 证券券商
+    type: select
+    proxies: [PROXY, DIRECT]
+    include-all-proxies: true
+  - name: 跨境支付
+    type: select
+    proxies: [PROXY, DIRECT]
+    include-all-proxies: true
+  - name: 加密资产
+    type: select
+    proxies: [PROXY, DIRECT]
+    include-all-proxies: true
+  - name: 其他金融
+    type: select
+    proxies: [PROXY, DIRECT]
+    include-all-proxies: true
+  - name: Telegram
+    type: select
+    proxies: [PROXY, DIRECT]
+    include-all-proxies: true
+  - name: 开发平台
+    type: select
+    proxies: [PROXY, DIRECT]
+    include-all-proxies: true
+  - name: Google 服务
+    type: select
+    proxies: [PROXY, DIRECT]
+    include-all-proxies: true
+  - name: 微软服务
+    type: select
+    proxies: [PROXY, DIRECT]
+    include-all-proxies: true
+  - name: 游戏平台
+    type: select
+    proxies: [PROXY, DIRECT]
+    include-all-proxies: true
+  - name: 未分类流量
+    type: select
+    proxies: [PROXY, DIRECT]
+    include-all-proxies: true
+
+rule-providers:
+  private:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/private.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs
+    interval: 86400
+
+  private-ip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    path: ./rule-providers/metacubex/geoip/private.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs
+    interval: 86400
+
+  category-ads-all:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/category-ads-all.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.mrs
+    interval: 86400
+
+  tiktok:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/tiktok.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs
+    interval: 86400
+
+  douyin:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/douyin.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/douyin.mrs
+    interval: 86400
+
+  apple-intelligence:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/apple-intelligence.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-intelligence.mrs
+    interval: 86400
+
+  google-gemini:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/google-gemini.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google-gemini.mrs
+    interval: 86400
+
+  category-ai-non-cn:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/category-ai-!cn.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs
+    interval: 86400
+
+  ibkr:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/ibkr.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/ibkr.mrs
+    interval: 86400
+
+  schwab:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/schwab.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/schwab.mrs
+    interval: 86400
+
+  futu:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/futu.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/futu.mrs
+    interval: 86400
+
+  wise:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/wise.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/wise.mrs
+    interval: 86400
+
+  paypal:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/paypal.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.mrs
+    interval: 86400
+
+  stripe:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/stripe.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/stripe.mrs
+    interval: 86400
+
+  visa:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/visa.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/visa.mrs
+    interval: 86400
+
+  mastercard:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/mastercard.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/mastercard.mrs
+    interval: 86400
+
+  category-cryptocurrency:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/category-cryptocurrency.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-cryptocurrency.mrs
+    interval: 86400
+
+  hsbc-cn:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/hsbc-cn.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/hsbc-cn.mrs
+    interval: 86400
+
+  category-bank-cn:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/category-bank-cn.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-bank-cn.mrs
+    interval: 86400
+
+  category-securities-cn:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/category-securities-cn.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-securities-cn.mrs
+    interval: 86400
+
+  hsbc:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/hsbc.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/hsbc.mrs
+    interval: 86400
+
+  category-bank-jp:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/category-bank-jp.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-bank-jp.mrs
+    interval: 86400
+
+  telegram:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/telegram.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs
+    interval: 86400
+
+  telegram-ip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    path: ./rule-providers/metacubex/geoip/telegram.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs
+    interval: 86400
+
+  youtube:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/youtube.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs
+    interval: 86400
+
+  netflix:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/netflix.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs
+    interval: 86400
+
+  disney:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/disney.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/disney.mrs
+    interval: 86400
+
+  hbo:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/hbo.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/hbo.mrs
+    interval: 86400
+
+  primevideo:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/primevideo.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/primevideo.mrs
+    interval: 86400
+
+  spotify:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/spotify.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/spotify.mrs
+    interval: 86400
+
+  apple-tvplus:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/apple-tvplus.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-tvplus.mrs
+    interval: 86400
+
+  github:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/github.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs
+    interval: 86400
+
+  gitlab:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/gitlab.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gitlab.mrs
+    interval: 86400
+
+  docker:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/docker.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/docker.mrs
+    interval: 86400
+
+  apple-cn:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/apple-cn.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-cn.mrs
+    interval: 86400
+
+  icloud-tag-cn:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/icloud@cn.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/icloud@cn.mrs
+    interval: 86400
+
+  microsoft-tag-cn:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/microsoft@cn.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft@cn.mrs
+    interval: 86400
+
+  google-tag-cn:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/google@cn.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google@cn.mrs
+    interval: 86400
+
+  cn-domain:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/cn.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs
+    interval: 86400
+
+  category-finance:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/category-finance.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-finance.mrs
+    interval: 86400
+
+  category-games-non-cn:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/category-games-!cn.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-games-!cn.mrs
+    interval: 86400
+
+  icloud:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/icloud.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/icloud.mrs
+    interval: 86400
+
+  apple:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/apple.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs
+    interval: 86400
+
+  google:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/google.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs
+    interval: 86400
+
+  microsoft:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/microsoft.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs
+    interval: 86400
+
+  geolocation-non-cn:
+    type: http
+    behavior: domain
+    format: mrs
+    path: ./rule-providers/metacubex/geosite/geolocation-!cn.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs
+    interval: 86400
+
+  cn-ip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    path: ./rule-providers/metacubex/geoip/cn.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs
+    interval: 86400
+
+rules:
+  # 本地域名和已知私有 IP 直连。
+  - RULE-SET,private,DIRECT
+  - RULE-SET,private-ip,DIRECT,no-resolve
+
+  # 广告优先拦截。
+  - RULE-SET,category-ads-all,REJECT
+
+  # TikTok 可独立选节点，国内抖音直连；应用名单先于国内和海外通用名单。
+  - RULE-SET,tiktok,TikTok
+  - RULE-SET,douyin,DIRECT
+
+  # 海外 AI 先于 Apple、Google 和微软大类。
+  - RULE-SET,apple-intelligence,AI 服务
+  - RULE-SET,google-gemini,AI 服务
+  - RULE-SET,category-ai-non-cn,AI 服务
+
+  # 已知跨境券商、支付和加密资产先于金融大类。
+  - RULE-SET,ibkr,证券券商
+  - RULE-SET,schwab,证券券商
+  - RULE-SET,futu,证券券商
+  - RULE-SET,wise,跨境支付
+  - RULE-SET,paypal,跨境支付
+  - RULE-SET,stripe,跨境支付
+  - RULE-SET,visa,跨境支付
+  - RULE-SET,mastercard,跨境支付
+  - RULE-SET,category-cryptocurrency,加密资产
+
+  # 境内银行和券商直连。汇丰中国先于汇丰集团。
+  - RULE-SET,hsbc-cn,DIRECT
+  - RULE-SET,category-bank-cn,DIRECT
+  - RULE-SET,category-securities-cn,DIRECT
+
+  # 单独分组上游收录的汇丰和日本银行域名。
+  - RULE-SET,hsbc,银行服务
+  - RULE-SET,category-bank-jp,银行服务
+
+  # Telegram 支持按域名或已知 IP 匹配；平台专属规则先于母公司。
+  - RULE-SET,telegram,Telegram
+  - RULE-SET,telegram-ip,Telegram,no-resolve
+  - RULE-SET,youtube,流媒体
+  - RULE-SET,netflix,流媒体
+  - RULE-SET,disney,流媒体
+  - RULE-SET,hbo,流媒体
+  - RULE-SET,primevideo,流媒体
+  - RULE-SET,spotify,流媒体
+  - RULE-SET,apple-tvplus,流媒体
+  - RULE-SET,github,开发平台
+  - RULE-SET,gitlab,开发平台
+  - RULE-SET,docker,开发平台
+
+  # 境内平台域名和国内通用域名先于平台大类直连。
+  - RULE-SET,apple-cn,DIRECT
+  - RULE-SET,icloud-tag-cn,DIRECT
+  - RULE-SET,microsoft-tag-cn,DIRECT
+  - RULE-SET,google-tag-cn,DIRECT
+  - RULE-SET,cn-domain,DIRECT
+
+  # 优先区分其余金融和海外游戏，再匹配平台大类及通用海外域名。
+  - RULE-SET,category-finance,其他金融
+  - RULE-SET,category-games-non-cn,游戏平台
+  - RULE-SET,icloud,Apple 与 iCloud
+  - RULE-SET,apple,Apple 与 iCloud
+  - RULE-SET,google,Google 服务
+  - RULE-SET,microsoft,微软服务
+  - RULE-SET,geolocation-non-cn,海外应用
+
+  # 其余流量再检查中国大陆 IP；未携带目标 IP 时允许解析域名。
+  - RULE-SET,cn-ip,DIRECT
+
+  - MATCH,未分类流量
