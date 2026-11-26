@@ -1,8 +1,8 @@
 # 3X-UI Clash / Mihomo 远程路由模板（v3.7.0+）
 # 把本文件的公开 Raw HTTPS 地址填入面板订阅设置中的「全局路由规则」。
 # 各场景默认跟随 PROXY。PROXY 首选自动测速，也可在任一场景手动固定节点或选择 DIRECT。
-# 自动测速每 5 分钟比较所有订阅节点的响应延迟。组图标随订阅内嵌。
-# 客户端按 rules 顺序取首条匹配。所有域名和 IP 名单均取自 MetaCubeX，每日更新。
+# 自动测速每 60 秒比较所有订阅节点的响应延迟。组图标随订阅内嵌。
+# 客户端按 rules 顺序取首条匹配。所有域名和 IP 名单均取自 MetaCubeX，客户端每小时检查一次更新。
 
 proxy-groups:
   - name: 自动测速
@@ -10,7 +10,7 @@ proxy-groups:
     icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDMyIDMyIj48cmVjdCB4PSIxIiB5PSIxIiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHJ4PSI4IiBmaWxsPSIjMTA2RDYzIi8+PHBhdGggZD0iTTYgMjJhMTEgMTEgMCAxIDEgMjAgME04IDE3bDIgMW0xLTkgMSAybTgtMi0xIDJtNSA2LTIgMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjQTFGNUQ4IiBzdHJva2Utd2lkdGg9IjIuMSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0ibTE0IDE4IDgtNy00IDEweiIgZmlsbD0id2hpdGUiLz48Y2lyY2xlIGN4PSIxNS41IiBjeT0iMjAiIHI9IjIuNiIgZmlsbD0id2hpdGUiLz48L3N2Zz4="
     include-all-proxies: true
     url: https://www.gstatic.com/generate_204
-    interval: 300
+    interval: 60
     timeout: 5000
     tolerance: 0
     lazy: false
@@ -107,7 +107,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/private.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs
-    interval: 86400
+    interval: 3600
 
   private-ip:
     type: http
@@ -115,7 +115,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geoip/private.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs
-    interval: 86400
+    interval: 3600
 
   category-ads-all:
     type: http
@@ -123,7 +123,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/category-ads-all.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.mrs
-    interval: 86400
+    interval: 3600
 
   tiktok:
     type: http
@@ -131,7 +131,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/tiktok.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs
-    interval: 86400
+    interval: 3600
 
   douyin:
     type: http
@@ -139,7 +139,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/douyin.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/douyin.mrs
-    interval: 86400
+    interval: 3600
 
   apple-intelligence:
     type: http
@@ -147,7 +147,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/apple-intelligence.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-intelligence.mrs
-    interval: 86400
+    interval: 3600
 
   google-gemini:
     type: http
@@ -155,7 +155,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/google-gemini.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google-gemini.mrs
-    interval: 86400
+    interval: 3600
 
   category-ai-non-cn:
     type: http
@@ -163,7 +163,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/category-ai-!cn.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs
-    interval: 86400
+    interval: 3600
 
   ibkr:
     type: http
@@ -171,7 +171,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/ibkr.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/ibkr.mrs
-    interval: 86400
+    interval: 3600
 
   schwab:
     type: http
@@ -179,7 +179,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/schwab.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/schwab.mrs
-    interval: 86400
+    interval: 3600
 
   futu:
     type: http
@@ -187,7 +187,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/futu.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/futu.mrs
-    interval: 86400
+    interval: 3600
 
   wise:
     type: http
@@ -195,7 +195,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/wise.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/wise.mrs
-    interval: 86400
+    interval: 3600
 
   paypal:
     type: http
@@ -203,7 +203,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/paypal.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.mrs
-    interval: 86400
+    interval: 3600
 
   stripe:
     type: http
@@ -211,7 +211,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/stripe.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/stripe.mrs
-    interval: 86400
+    interval: 3600
 
   visa:
     type: http
@@ -219,7 +219,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/visa.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/visa.mrs
-    interval: 86400
+    interval: 3600
 
   mastercard:
     type: http
@@ -227,7 +227,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/mastercard.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/mastercard.mrs
-    interval: 86400
+    interval: 3600
 
   category-cryptocurrency:
     type: http
@@ -235,7 +235,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/category-cryptocurrency.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-cryptocurrency.mrs
-    interval: 86400
+    interval: 3600
 
   hsbc-cn:
     type: http
@@ -243,7 +243,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/hsbc-cn.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/hsbc-cn.mrs
-    interval: 86400
+    interval: 3600
 
   category-bank-cn:
     type: http
@@ -251,7 +251,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/category-bank-cn.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-bank-cn.mrs
-    interval: 86400
+    interval: 3600
 
   category-securities-cn:
     type: http
@@ -259,7 +259,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/category-securities-cn.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-securities-cn.mrs
-    interval: 86400
+    interval: 3600
 
   hsbc:
     type: http
@@ -267,7 +267,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/hsbc.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/hsbc.mrs
-    interval: 86400
+    interval: 3600
 
   category-bank-jp:
     type: http
@@ -275,7 +275,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/category-bank-jp.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-bank-jp.mrs
-    interval: 86400
+    interval: 3600
 
   telegram:
     type: http
@@ -283,7 +283,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/telegram.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs
-    interval: 86400
+    interval: 3600
 
   telegram-ip:
     type: http
@@ -291,7 +291,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geoip/telegram.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs
-    interval: 86400
+    interval: 3600
 
   youtube:
     type: http
@@ -299,7 +299,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/youtube.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs
-    interval: 86400
+    interval: 3600
 
   netflix:
     type: http
@@ -307,7 +307,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/netflix.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs
-    interval: 86400
+    interval: 3600
 
   disney:
     type: http
@@ -315,7 +315,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/disney.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/disney.mrs
-    interval: 86400
+    interval: 3600
 
   hbo:
     type: http
@@ -323,7 +323,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/hbo.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/hbo.mrs
-    interval: 86400
+    interval: 3600
 
   primevideo:
     type: http
@@ -331,7 +331,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/primevideo.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/primevideo.mrs
-    interval: 86400
+    interval: 3600
 
   spotify:
     type: http
@@ -339,7 +339,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/spotify.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/spotify.mrs
-    interval: 86400
+    interval: 3600
 
   apple-tvplus:
     type: http
@@ -347,7 +347,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/apple-tvplus.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-tvplus.mrs
-    interval: 86400
+    interval: 3600
 
   github:
     type: http
@@ -355,7 +355,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/github.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs
-    interval: 86400
+    interval: 3600
 
   gitlab:
     type: http
@@ -363,7 +363,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/gitlab.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gitlab.mrs
-    interval: 86400
+    interval: 3600
 
   docker:
     type: http
@@ -371,7 +371,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/docker.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/docker.mrs
-    interval: 86400
+    interval: 3600
 
   apple-cn:
     type: http
@@ -379,7 +379,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/apple-cn.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-cn.mrs
-    interval: 86400
+    interval: 3600
 
   icloud-tag-cn:
     type: http
@@ -387,7 +387,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/icloud@cn.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/icloud@cn.mrs
-    interval: 86400
+    interval: 3600
 
   microsoft-tag-cn:
     type: http
@@ -395,7 +395,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/microsoft@cn.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft@cn.mrs
-    interval: 86400
+    interval: 3600
 
   google-tag-cn:
     type: http
@@ -403,7 +403,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/google@cn.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google@cn.mrs
-    interval: 86400
+    interval: 3600
 
   cn-domain:
     type: http
@@ -411,7 +411,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/cn.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs
-    interval: 86400
+    interval: 3600
 
   category-finance:
     type: http
@@ -419,7 +419,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/category-finance.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-finance.mrs
-    interval: 86400
+    interval: 3600
 
   category-games-non-cn:
     type: http
@@ -427,7 +427,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/category-games-!cn.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-games-!cn.mrs
-    interval: 86400
+    interval: 3600
 
   icloud:
     type: http
@@ -435,7 +435,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/icloud.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/icloud.mrs
-    interval: 86400
+    interval: 3600
 
   apple:
     type: http
@@ -443,7 +443,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/apple.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs
-    interval: 86400
+    interval: 3600
 
   google:
     type: http
@@ -451,7 +451,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/google.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs
-    interval: 86400
+    interval: 3600
 
   microsoft:
     type: http
@@ -459,7 +459,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/microsoft.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs
-    interval: 86400
+    interval: 3600
 
   geolocation-non-cn:
     type: http
@@ -467,7 +467,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geosite/geolocation-!cn.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs
-    interval: 86400
+    interval: 3600
 
   cn-ip:
     type: http
@@ -475,7 +475,7 @@ rule-providers:
     format: mrs
     path: ./rule-providers/metacubex/geoip/cn.mrs
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs
-    interval: 86400
+    interval: 3600
 
 rules:
   # 本地域名和已知私有 IP 直连。
